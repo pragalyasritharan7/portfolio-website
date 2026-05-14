@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pragalya Sritharan | Portfolio</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-dark: #070914;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --primary: #9b5de5;
+      --secondary: #00d4ff;
+      --accent: #f15bb5;
+      --text-light: #f8f9ff;
+      --text-muted: #b8bfd6;
+      --glass-border: rgba(255, 255, 255, 0.16);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top left, rgba(155, 93, 229, 0.28), transparent 32%),
+                  radial-gradient(circle at top right, rgba(0, 212, 255, 0.18), transparent 30%),
+                  var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 45px 45px;
+      pointer-events: none;
+      z-index: -3;
+    }
+
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .floating-paper {
+      position: absolute;
+      width: 150px;
+      min-height: 190px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 25px 65px rgba(0,0,0,0.22);
+      backdrop-filter: blur(12px);
+      opacity: 0.65;
+      animation: paperFloat 12s ease-in-out infinite;
+    }
+
+    .floating-paper span {
+      display: block;
+      color: rgba(255,255,255,0.82);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .floating-paper div {
+      height: 7px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.22);
+      margin-bottom: 12px;
+    }
+
+    .floating-paper div:nth-child(3) { width: 72%; }
+    .floating-paper div:nth-child(4) { width: 88%; }
+
+    .paper-1 {
+      top: 18%;
+      left: 5%;
+      transform: rotate(-10deg);
+      animation-delay: 0s;
+    }
+
+    .paper-2 {
+      top: 58%;
+      right: 6%;
+      transform: rotate(9deg);
+      animation-delay: 2s;
+    }
+
+    .paper-3 {
+      top: 78%;
+      left: 18%;
+      transform: rotate(6deg);
+      animation-delay: 4s;
+    }
+
+    @keyframes paperFloat {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+      50% { transform: translateY(-32px) rotate(3deg); }
+    }
+
+    .code-chip {
+      position: absolute;
+      padding: 10px 18px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.82);
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.20);
+      backdrop-filter: blur(10px);
+      font-size: 0.86rem;
+      font-weight: 600;
+      animation: chipMove 10s ease-in-out infinite;
+      opacity: 0.72;
+    }
+
+    .chip-1 { top: 30%; right: 14%; animation-delay: 1s; }
+    .chip-2 { top: 48%; left: 9%; animation-delay: 3s; }
+    .chip-3 { bottom: 13%; right: 22%; animation-delay: 5s; }
+
+    @keyframes chipMove {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(18px, -24px); }
+    }
+
+    .orb {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.30;
+      animation: orbPulse 8s ease-in-out infinite;
+    }
+
+    .orb-1 { top: 8%; left: 18%; background: #9b5de5; }
+    .orb-2 { bottom: 8%; right: 18%; background: #00d4ff; animation-delay: 2s; }
+    .orb-3 { top: 42%; left: 48%; background: #f15bb5; animation-delay: 4s; }
+
+    @keyframes orbPulse {
+      0%, 100% { transform: scale(1); opacity: 0.22; }
+      50% { transform: scale(1.25); opacity: 0.36; }
+    }
+
+    @media (max-width: 768px) {
+      .floating-paper, .code-chip { opacity: 0.28; transform: scale(0.85); }
+      .paper-3 { display: none; }
+    }
+
+    .navbar {
+      background: rgba(7, 9, 20, 0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--text-light) !important;
+    }
+
+    .brand-dot {
+      color: var(--secondary);
+    }
+
+    .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--secondary) !important;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.07);
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.7rem);
+      font-weight: 800;
+      line-height: 1.02;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      max-width: 670px;
+      line-height: 1.8;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04));
+      border: 1px solid var(--glass-border);
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      position: relative;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .profile-circle {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 60px rgba(155, 93, 229, 0.55);
+      font-size: 4rem;
+      font-weight: 800;
+    }
+
+    .stat-box {
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 18px;
+      border-radius: 22px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .stat-box h3 {
+      color: var(--secondary);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .stat-box span {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .btn-main {
+      border: none;
+      border-radius: 50px;
+      padding: 13px 26px;
+      color: white;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      font-weight: 600;
+      box-shadow: 0 15px 35px rgba(155, 93, 229, 0.30);
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-4px);
+      color: white;
+      box-shadow: 0 20px 45px rgba(241, 91, 181, 0.35);
+    }
+
+    .btn-outline-custom {
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 13px 26px;
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn-outline-custom:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--secondary);
+      transform: translateY(-4px);
+    }
+
+    .section-title {
+      margin-bottom: 48px;
+    }
+
+    .section-title span {
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 800;
+      margin-top: 10px;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 28px;
+      height: 100%;
+      transition: 0.35s ease;
+      backdrop-filter: blur(15px);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 212, 255, 0.42);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.28);
+    }
+
+    .about-text {
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 14px;
+      margin: 6px 6px 0 0;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .skill-card i,
+    .project-card i,
+    .cert-card i {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(155,93,229,0.28), rgba(0,212,255,0.18));
+      color: var(--secondary);
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+    }
+
+    .skill-card h4,
+    .project-card h4,
+    .cert-card h4 {
+      font-weight: 700;
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-card p,
+    .project-card p,
+    .cert-card p,
+    .timeline p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
+    }
+
+    .project-meta {
+      color: var(--secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      border-left: 2px solid rgba(255,255,255,0.14);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 25px rgba(0,212,255,0.8);
+    }
+
+    .timeline h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .timeline small {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    .contact-box a {
+      color: var(--text-muted);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: 0.3s ease;
+    }
+
+    .contact-box a:hover {
+      color: var(--secondary);
+      transform: translateX(6px);
+    }
+
+    footer {
+      padding: 30px 0;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typing-text::after {
+      content: "|";
+      animation: blink 0.8s infinite;
+      color: var(--secondary);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (max-width: 991px) {
+      .hero {
+        padding-top: 120px;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-card {
+        margin-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Animated Professional Background -->
+  <div class="animated-bg" aria-hidden="true">
+    <div class="floating-paper paper-1">
+      <span>Resume</span>
+      <div></div><div></div><div></div>
+    </div>
+    <div class="floating-paper paper-2">
+      <span>Projects</span>
+      <div></div><div></div><div></div>
+    </div>
+    <div class="floating-paper paper-3">
+      <span>Skills</span>
+      <div></div><div></div><div></div>
+    </div>
+    <div class="code-chip chip-1">&lt;HTML /&gt;</div>
+    <div class="code-chip chip-2">JavaScript</div>
+    <div class="code-chip chip-3">AWS • AI</div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Pragalya<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal">
+          <div class="hero-badge">
+            <i class="fa-solid fa-code"></i>
+            2nd Year CSD Student | Aspiring Software Engineer
+          </div>
+          <h1>Hi, I'm <span class="gradient-text">Pragalya Sritharan</span></h1>
+          <h3 class="mb-3"><span class="typing-text" id="typing"></span></h3>
+          <p>
+            A Computer Systems and Design student at PSG College of Technology, passionate about software development,
+            front-end development, AI-assisted applications, cloud learning, and building practical student projects with real-world impact.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mt-4 justify-content-lg-start justify-content-center">
+            <a href="#projects" class="btn-main"><i class="fa-solid fa-laptop-code"></i> View Projects</a>
+            <a href="#contact" class="btn-outline-custom"><i class="fa-solid fa-paper-plane"></i> Contact Me</a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 reveal">
+          <div class="hero-card text-center">
+            <div class="profile-circle">PS</div>
+            <h3 class="mt-4 fw-bold">Software + Creativity</h3>
+            <p class="text-secondary-emphasis" style="color: var(--text-muted) !important;">
+              Blending programming, AI tools, projects, and event coordination into one strong portfolio.
+            </p>
+            <div class="row g-3 mt-3">
+              <div class="col-4">
+                <div class="stat-box">
+                  <h3>5+</h3>
+                  <span>Projects</span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-box">
+                  <h3>6+</h3>
+                  <span>Skills</span>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat-box">
+                  <h3>5+</h3>
+                  <span>Certs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>About Me</span>
+        <h2>Building my path in tech with curiosity and consistency.</h2>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7 reveal">
+          <div class="glass-card">
+            <h3 class="fw-bold mb-3">Who I Am</h3>
+            <p class="about-text">
+              I am Pragalya Sritharan, a B.Sc Computer Systems and Design student at PSG College of Technology, Coimbatore.
+              I enjoy learning programming concepts and converting them into practical projects. My current interests include
+              front-end development, software engineering, AI-assisted development, cloud fundamentals, operating systems,
+              and computer networks.
+            </p>
+            <p class="about-text">
+              Along with technical learning, I am actively involved in RadioHub Club and event coordination activities. These experiences
+              have helped me improve my communication, teamwork, responsibility, and problem-solving skills.
+            </p>
+            <div class="mt-3">
+              <span class="tag">Software Development</span>
+              <span class="tag">Front-End Development</span>
+              <span class="tag">AI-Assisted Projects</span>
+              <span class="tag">Cloud Learning</span>
+              <span class="tag">Creative Tech</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 reveal">
+          <div class="glass-card">
+            <h3 class="fw-bold mb-4">Quick Profile</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <h4>Education</h4>
+                <small>PSG College of Technology</small>
+                <p>B.Sc Computer Systems and Design, 2nd Year</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Career Goal</h4>
+                <small>Software Engineering</small>
+                <p>Looking to grow through internships, real projects, and continuous learning.</p>
+              </div>
+              <div class="timeline-item">
+                <h4>Strength</h4>
+                <small>Tech + Coordination</small>
+                <p>Combining development skills with teamwork, event handling, and creative execution.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>Skills</span>
+        <h2>Technical skills I am building and improving.</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-code"></i>
+            <h4>Programming Languages</h4>
+            <p>C, C++, Python, Java</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-globe"></i>
+            <h4>Web Technologies</h4>
+            <p>HTML, CSS, JavaScript, Bootstrap</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-database"></i>
+            <h4>Database</h4>
+            <p>SQL, database fundamentals, basic query writing</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-brain"></i>
+            <h4>Core CS Concepts</h4>
+            <p>Object-Oriented Programming, Operating Systems, Computer Networks, DBMS</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-cloud"></i>
+            <h4>AI & Cloud Learning</h4>
+            <p>Generative AI fundamentals, prompt engineering, AWS basics, machine learning basics</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card skill-card">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h4>Tools</h4>
+            <p>GitHub, VS Code, AI Studio, online development tools</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>Projects</span>
+        <h2>Projects that show my learning journey.</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-calendar-check"></i>
+            <div class="project-meta">AI Studio | Event Management | Practical Application</div>
+            <h4>Event Management Application</h4>
+            <p>
+              Developed an application to manage events, registrations, and coordination efficiently. The project focuses on organizing event-related data and improving communication between teams.
+            </p>
+            <div class="mt-3">
+              <span class="tag">AI Studio</span>
+              <span class="tag">Event Workflow</span>
+              <span class="tag">Coordination</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="project-meta">Python | Computer Networks | Sockets</div>
+            <h4>Client-Server Email System</h4>
+            <p>
+              Built a Python socket-based email system with login, send, and read message features. Used JSON-based communication and applied core networking concepts.
+            </p>
+            <div class="mt-3">
+              <span class="tag">Python</span>
+              <span class="tag">Sockets</span>
+              <span class="tag">JSON</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <div class="project-meta">HTML | CSS | AI-Assisted</div>
+            <h4>Personal Portfolio Website</h4>
+            <p>
+              Designed and developed a personal portfolio website to showcase my technical skills, projects, certifications, and student journey in a clean and professional format.
+            </p>
+            <div class="mt-3">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-hard-drive"></i>
+            <div class="project-meta">Operating Systems | Algorithm Analysis</div>
+            <h4>Disk Scheduling Algorithm</h4>
+            <p>
+              Implemented and analyzed disk scheduling algorithms to understand how operating systems improve disk access efficiency and system performance.
+            </p>
+            <div class="mt-3">
+              <span class="tag">OS</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Performance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-music"></i>
+            <div class="project-meta">Java | Application Development</div>
+            <h4>Music Player</h4>
+            <p>
+              Developed a basic Java music player application with essential playback-related functionality, helping me strengthen Java programming and application logic.
+            </p>
+            <div class="mt-3">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Application</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card project-card">
+            <i class="fa-solid fa-rocket"></i>
+            <div class="project-meta">Upcoming | Software Engineering</div>
+            <h4>VertiSync Event Management</h4>
+            <p>
+              A role-based event and recording management project focused on dashboards, team coordination, meeting flow, progress tracking, and structured event planning.
+            </p>
+            <div class="mt-3">
+              <span class="tag">Role-Based Access</span>
+              <span class="tag">Dashboard</span>
+              <span class="tag">Team Workflow</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>Certifications</span>
+        <h2>Learning proof that supports my career direction.</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-brands fa-aws"></i>
+            <h4>AWS Generative AI</h4>
+            <p>Introduction to Generative AI: Art of the Possible</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-solid fa-keyboard"></i>
+            <h4>AWS Prompt Engineering</h4>
+            <p>Completed course focused on prompt engineering fundamentals and generative AI usage.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-solid fa-robot"></i>
+            <h4>IBM Machine Learning</h4>
+            <p>Currently pursuing machine learning certification to strengthen AI fundamentals.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <h4>Full Stack Development</h4>
+            <p>Completed full stack development certification covering web development fundamentals.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-solid fa-microchip"></i>
+            <h4>NPTEL Operating Systems</h4>
+            <p>Completed NPTEL certification in Operating Systems.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="glass-card cert-card">
+            <i class="fa-brands fa-python"></i>
+            <h4>Python Programming</h4>
+            <p>Completed Python programming certification and applied concepts in academic projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>Beyond Code</span>
+        <h2>Leadership, creativity, and collaboration.</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="glass-card">
+            <h3 class="fw-bold mb-3"><i class="fa-solid fa-radio me-2" style="color: var(--secondary)"></i>RadioHub Club</h3>
+            <p class="about-text">
+              Active member of RadioHub Club, involved in organizing, collaboration, creative work, and event-based activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="glass-card">
+            <h3 class="fw-bold mb-3"><i class="fa-solid fa-people-group me-2" style="color: var(--secondary)"></i>Point of Contact</h3>
+            <p class="about-text">
+              Appointed as a Point of Contact for an upcoming event, responsible for coordination between team members and participants.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title text-center reveal">
+        <span>Contact</span>
+        <h2>Let’s connect and build something meaningful.</h2>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="glass-card contact-box text-center">
+            <h3 class="fw-bold mb-4">Get In Touch</h3>
+            <a href="mailto:pragalyasritharan0607@gmail.com"><i class="fa-solid fa-envelope me-2"></i>pragalyasritharan0607@gmail.com</a>
+            <a href="tel:+918015028058"><i class="fa-solid fa-phone me-2"></i>+91 80150 28058</a>
+            <a href="#"><i class="fa-brands fa-linkedin me-2"></i>LinkedIn profile link coming soon</a>
+            <a href="#"><i class="fa-brands fa-github me-2"></i>GitHub profile link coming soon</a>
+            <a href="#"><i class="fa-solid fa-location-dot me-2"></i>Coimbatore, Tamil Nadu</a>
+            <div class="mt-4">
+              <a href="#home" class="btn-main"><i class="fa-solid fa-arrow-up"></i> Back to Top</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="mb-0">© 2026 Pragalya Sritharan. Built with HTML, CSS, JavaScript & Bootstrap.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Typing Animation
+    const typingElement = document.getElementById("typing");
+    const roles = [
+      "Front-End Developer",
+      "Aspiring Software Engineer",
+      "AI-Assisted Project Builder",
+      "Creative Tech Learner"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
+
+      if (isDeleting) {
+        typingElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typingSpeed = isDeleting ? 55 : 95;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        typingSpeed = 1300;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingSpeed = 250;
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+
+    // Reveal Animation on Scroll
+    const revealElements = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    // Navbar Active Link
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 160;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
